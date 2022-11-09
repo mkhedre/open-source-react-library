@@ -6,7 +6,6 @@ export default class ReactorComponent extends Component {
     super();
   }
   set(key, value) {
-    console.log(this.state);
     this.setState(Obj.set(this.state, key, value));
   }
 

@@ -1205,6 +1205,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@flk/events@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@flk/events/-/events-2.0.2.tgz#95dba610cce5aec01a3f4b2c85acdb77da1d73b9"
+  integrity sha512-GWdaewNTpvFok1oQp0rhELD9ADusOOOzs8ept//KoWI9/xau5sjdtvHwqxu5bbWXibbiWoxmUyvVolRwnHRRAg==
+
 "@flk/supportive-is@^0.2.3":
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@flk/supportive-is/-/supportive-is-0.2.3.tgz#8372698db9d0dd2a2d21d8c35f0dce16781a9f53"
