@@ -1,6 +1,7 @@
 import config from 'core/config';
 
 config.set({
-  name: 'mohamed',
-  age: 23,
+  endpoint: {
+    baseUrl: 'https://some-domain.com/api/',
+  },
 });

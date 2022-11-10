@@ -3,7 +3,8 @@ import React from 'react';
 import { ReactorComponent } from 'core/component';
 import Form from 'core/component/form/Form';
 import FormInput from 'core/component/form/Form-input';
-import { title } from 'core/metaData';
+import { description, title } from 'core/metaData';
+import endpoint from 'core/endpoint';
 export default class Login extends ReactorComponent {
   state = {
     validation: {
@@ -11,8 +12,11 @@ export default class Login extends ReactorComponent {
       password: null,
     },
   };
-  constructor() {
+  constructor(props) {
+    super(props);
     title('Login page');
+    description('login here');
+    endpoint.get('/list');
   }
 
   render() {
