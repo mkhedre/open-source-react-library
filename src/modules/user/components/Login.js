@@ -1,29 +1,46 @@
 import './login.scss';
 import React from 'react';
-import { ReactorComponent } from 'core/component';
-import Form from 'core/component/form/Form';
-import FormInput from 'core/component/form/Form-input';
-import { description, title } from 'core/metaData';
-import endpoint from 'core/endpoint';
+import { ReactorComponent } from 'reactor/component';
+import Form from 'reactor/component/form/Form';
+import FormInput from 'reactor/component/form/Form-input';
+import { description, title } from 'reactor/metaData';
+import endpoint from 'reactor/endpoint';
+import userService from '../services/service';
+import login from '../services/Auth';
+import config from 'reactor/config';
 export default class Login extends ReactorComponent {
-  state = {
-    validation: {
-      email: null,
-      password: null,
-    },
-  };
   constructor(props) {
     super(props);
     title('Login page');
     description('login here');
-    endpoint.get('/list');
+    console.log(config.get('endpoint.baseUrl'));
   }
+  login = async (e) => {
+    login(e.target)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // try {
+    //   await login(e.target);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
 
+  displayError() {
+    this.errors = this.get('errors');
+    return Object.keys(this.errors).map((key) => {
+      return <div key={key}>{this.errors[key]}</div>;
+    });
+  }
   render() {
     return (
       <div id="login">
         <h1>login</h1>
-        <Form>
+        <Form onSubmit={this.login}>
           <FormInput
             type="email"
             className="form-input"

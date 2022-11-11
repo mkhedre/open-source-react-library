@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import config from 'core/config';
+import config from 'reactor/config';
 
 export default class Users extends Component {
   state = {

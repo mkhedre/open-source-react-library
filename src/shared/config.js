@@ -1,7 +1,7 @@
-import config from 'core/config';
+import config from 'reactor/config';
 
 config.set({
   endpoint: {
-    baseUrl: 'https://some-domain.com/api/',
+    baseUrl: 'https://fake-login-api-production.up.railway.app/api/auth',
   },
 });

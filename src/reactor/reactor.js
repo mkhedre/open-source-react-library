@@ -4,7 +4,7 @@
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
-import { scan } from 'reactor/router';
+import { scan } from './router';
 
 //     // If you want to start measuring performance in your app, pass a function
 //     // to log results (for example: reportWebVitals(console.log))

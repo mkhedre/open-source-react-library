@@ -8,7 +8,7 @@ export default class RestfulEndpoint {
    * @param {object} params
    */
   list(params) {
-    console.log(this.route)
+    endpoint.get(this.route);
   }
   /**
    *

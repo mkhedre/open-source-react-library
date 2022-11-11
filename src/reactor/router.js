@@ -37,6 +37,7 @@ export function scan() {
   //   ReactDOM.render(<Rout />, document.getElementById('root'));
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   add: addRouter,
 };
