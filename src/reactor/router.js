@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Middleware from './Middleware';
+import { createHistory } from 'history';
+
+let history = createHistory();
 
 const routesList = [];
-
-function addRouter(path, component) {
+console.log(routesList);
+function addRouter(path, component, middleware) {
   routesList.push({
     path,
     component,
+    middleware,
   });
 }
 
@@ -19,7 +24,7 @@ function Rout() {
         exact={true}
         key={index}
         element={route.component}
-      />
+      ></Route>
     );
   });
   return <Routes>{routes}</Routes>;

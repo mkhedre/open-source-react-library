@@ -4,32 +4,41 @@ import { ReactorComponent } from 'reactor/component';
 import Form from 'reactor/component/form/Form';
 import FormInput from 'reactor/component/form/Form-input';
 import { description, title } from 'reactor/metaData';
-import endpoint from 'reactor/endpoint';
-import userService from '../services/service';
 import login from '../services/Auth';
 import config from 'reactor/config';
+import user from 'user';
+import Cache from 'reactor/Cache';
+import { navigateTo } from 'reactor/helpers';
+
 export default class Login extends ReactorComponent {
   constructor(props) {
     super(props);
     title('Login page');
     description('login here');
-    console.log(config.get('endpoint.baseUrl'));
+    Cache.set('user', {
+      name: 'mostafa',
+      age: 34,
+    });
+    if (user.isLoggedIn()) {
+      navigateTo('/first');
+      window.location.reload(true);
+    }
   }
   login = async (e) => {
-    login(e.target)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    // try {
-    //   await login(e.target);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    // login(e.target)
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+    try {
+      let { data } = await login(e.target);
+      user.login(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
-
   displayError() {
     this.errors = this.get('errors');
     return Object.keys(this.errors).map((key) => {
