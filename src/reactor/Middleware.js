@@ -12,6 +12,7 @@ const Middleware = (props) => {
   //     age: 34,
   //   });
   const { route } = props;
+  console.log(route);
   let middlewareList = route.middleware;
   if (!Is.array(middlewareList)) {
     middlewareList = [middlewareList];

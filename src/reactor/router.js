@@ -23,7 +23,7 @@ function Rout() {
         path={route.path}
         exact={true}
         key={index}
-        element={route.component}
+        element={<Middleware route={route} />}
       ></Route>
     );
   });

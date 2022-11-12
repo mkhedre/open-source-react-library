@@ -9,7 +9,7 @@ import config from 'reactor/config';
 import user from 'user';
 import Cache from 'reactor/Cache';
 import { navigateTo } from 'reactor/helpers';
-
+import { Navigate } from 'react-router-dom';
 export default class Login extends ReactorComponent {
   constructor(props) {
     super(props);
@@ -20,8 +20,7 @@ export default class Login extends ReactorComponent {
       age: 34,
     });
     if (user.isLoggedIn()) {
-      navigateTo('/first');
-      window.location.reload(true);
+      <Navigate to="/users" />;
     }
   }
   login = async (e) => {
